@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TradingTracker:jar">
+    <output-path>E:/Users/Andrei/Desktop/Java Apps</output-path>
+    <root id="archive" name="TradingTracker.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="E:/Users/Andrei/Desktop/Java Apps/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="TradingTracker" />
+    </root>
+  </artifact>
+</component>
