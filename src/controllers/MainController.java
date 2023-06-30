@@ -36,8 +36,10 @@ public class MainController {
                 double sizeInUsdt = Double.parseDouble(view.getTextFieldOpenAmount().getText());
                 double leverage = sizeInUsdt / account.getBalance();
                 double liqPriceInUsdt = entryPrice - 0.85 * (entryPrice * (1 / leverage));
+                double orderFeePercentage = Double.parseDouble(view.getTextFieldOrderFee().getText());
                 Trade trade = new Trade(entryPrice, sizeInUsdt, leverage, liqPriceInUsdt, Side.LONG);
                 account.setTrade(trade);
+                account.setBalance(account.getBalance() - sizeInUsdt * orderFeePercentage);
                 view.getLabelSide().setText("Long");
                 view.getLabelAvgPriceValue().setText(String.valueOf(decimalFormat.format(entryPrice)));
                 view.getLabelSizeValue().setText(String.valueOf(decimalFormat.format(sizeInUsdt)));

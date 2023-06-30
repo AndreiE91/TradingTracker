@@ -14,6 +14,11 @@ public class ViewMain extends JFrame {
     JButton buttonSetBalance = new JButton("Set balance");
     JTextField textFieldSetBalance = new JTextField();
 
+    JButton buttonSetOrderFee = new JButton("Set order fee");
+    JTextField textFieldSetOrderFee = new JTextField();
+    JLabel labelOrderFee = new JLabel("Order fee:");
+    JLabel labelOrderFeeValue = new JLabel("0.075%");
+
     JLabel labelEntryPrice = new JLabel("Entry price:");
     JTextField textFieldEntryPrice = new JTextField();
     JLabel labelOpenAmount = new JLabel("Amount(USDT):");
@@ -37,6 +42,7 @@ public class ViewMain extends JFrame {
     JTextField textFieldClosePrice = new JTextField();
     JButton buttonClose = new JButton("Close");
     JButton buttonEditBalance = new JButton("Edit balance...");
+    JButton buttonEditOrderFee = new JButton("Edit fees...");
 
 
     public ViewMain() {
@@ -69,6 +75,9 @@ public class ViewMain extends JFrame {
         getContentPane().add(buttonClose);
         getContentPane().add(buttonEditBalance);
         getContentPane().add(labelSide);
+        getContentPane().add(buttonSetOrderFee);
+        getContentPane().add(buttonEditOrderFee);
+        getContentPane().add(textFieldSetOrderFee);
         getContentPane().setBackground(new Color(107, 159, 255));
 
 
