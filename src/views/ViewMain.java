@@ -34,7 +34,7 @@ public class ViewMain extends JFrame {
     JLabel labelLiqPriceValue = new JLabel("0.00 USDT");
     JLabel labelSize = new JLabel("Size(USDT)");
     JLabel labelSizeValue = new JLabel("0.00 USDT");
-    JLabel labelPositionTitle = new JLabel("BTC USDT Perpetual");
+    JLabel labelPositionTitle = new JLabel("COIN USDT Perpetual");
     JLabel labelLeverage = new JLabel("0.00x");
     JLabel labelSide = new JLabel("Neutral");
 
