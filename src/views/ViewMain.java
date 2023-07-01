@@ -16,8 +16,8 @@ public class ViewMain extends JFrame {
 
     JButton buttonSetOrderFee = new JButton("Set order fee");
     JTextField textFieldSetOrderFee = new JTextField();
-    JLabel labelOrderFee = new JLabel("Order fee:");
-    JLabel labelOrderFeeValue = new JLabel("0.075%");
+    JLabel labelOrderFee = new JLabel("Order fee");
+    JLabel labelOrderFeeValue = new JLabel("0.0750%");
 
     JLabel labelEntryPrice = new JLabel("Entry price:");
     JTextField textFieldEntryPrice = new JTextField();
@@ -27,15 +27,15 @@ public class ViewMain extends JFrame {
     JButton buttonSell = new JButton("Sell/Short");
 
     JLabel labelBalance = new JLabel("Balance");
-    JLabel labelBalanceValue = new JLabel("0 USDT");
+    JLabel labelBalanceValue = new JLabel("0.00 USDT");
     JLabel labelAvgPrice = new JLabel("Avg. Price");
-    JLabel labelAvgPriceValue = new JLabel("0 USDT");
+    JLabel labelAvgPriceValue = new JLabel("0.00 USDT");
     JLabel labelLiqPrice = new JLabel("Liq price");
-    JLabel labelLiqPriceValue = new JLabel("0 USDT");
+    JLabel labelLiqPriceValue = new JLabel("0.00 USDT");
     JLabel labelSize = new JLabel("Size(USDT)");
-    JLabel labelSizeValue = new JLabel("0 USDT");
+    JLabel labelSizeValue = new JLabel("0.00 USDT");
     JLabel labelPositionTitle = new JLabel("BTC USDT Perpetual");
-    JLabel labelLeverage = new JLabel("0x");
+    JLabel labelLeverage = new JLabel("0.00x");
     JLabel labelSide = new JLabel("Neutral");
 
     JLabel labelClosePrice = new JLabel("Close price:");
@@ -78,6 +78,8 @@ public class ViewMain extends JFrame {
         getContentPane().add(buttonSetOrderFee);
         getContentPane().add(buttonEditOrderFee);
         getContentPane().add(textFieldSetOrderFee);
+        getContentPane().add(labelOrderFee);
+        getContentPane().add(labelOrderFeeValue);
         getContentPane().setBackground(new Color(107, 159, 255));
 
 
@@ -87,12 +89,19 @@ public class ViewMain extends JFrame {
         labelOpenAmount.setBounds(25, 240, 128, 36);
         labelOpenAmount.setFont(new Font("Tahoma", Font.BOLD, 12));
 
-        labelBalance.setBounds(750, 25, 150, 50);
+        labelBalance.setBounds(750, 25, 150, 20);
         labelBalance.setFont(new Font("Tahoma", Font.BOLD, 12));
 
-        labelBalanceValue.setBounds(700, 45, 150, 50);
+        labelBalanceValue.setBounds(700, 45, 150, 20);
         labelBalanceValue.setHorizontalAlignment(SwingConstants.CENTER);
         labelBalanceValue.setFont(new Font("Tahoma", Font.BOLD, 12));
+
+        labelOrderFee.setBounds(750, 80, 150, 20);
+        labelOrderFee.setFont(new Font("Tahoma", Font.BOLD, 12));
+
+        labelOrderFeeValue.setBounds(700, 85, 150, 50);
+        labelOrderFeeValue.setHorizontalAlignment(SwingConstants.CENTER);
+        labelOrderFeeValue.setFont(new Font("Tahoma", Font.BOLD, 12));
 
         labelAvgPrice.setBounds(125, 70, 75, 20);
         labelAvgPrice.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -131,6 +140,9 @@ public class ViewMain extends JFrame {
         textFieldSetBalance.setBounds(780, 370, 95, 27);
         textFieldSetBalance.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
+        textFieldSetOrderFee.setBounds(670, 370, 95, 27);
+        textFieldSetOrderFee.setFont(new Font("Tahoma", Font.PLAIN, 20));
+
         textFieldClosePrice.setBounds(100, 368, 95, 25);
         textFieldClosePrice.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
@@ -143,6 +155,10 @@ public class ViewMain extends JFrame {
         buttonSetBalance.setFont(new Font("Tahoma", Font.BOLD, 9));
         buttonSetBalance.setBounds(780, 400, 95, 27);
         buttonSetBalance.setBackground(new Color(154, 204, 100));
+
+        buttonSetOrderFee.setFont(new Font("Tahoma", Font.BOLD, 8));
+        buttonSetOrderFee.setBounds(670, 400, 95, 27);
+        buttonSetOrderFee.setBackground(new Color(154, 204, 100));
 
         buttonBuy.setFont(new Font("Tahoma", Font.BOLD, 15));
         buttonBuy.setBounds(25, 300, 128, 36);
@@ -159,10 +175,56 @@ public class ViewMain extends JFrame {
         buttonEditBalance.setFont(new Font("Tahoma", Font.BOLD, 9));
         buttonEditBalance.setBounds(770, 430, 110, 27);
 
+        buttonEditOrderFee.setFont(new Font("Tahoma", Font.BOLD, 9));
+        buttonEditOrderFee.setBounds(660, 430, 110, 27);
+
         textFieldSetBalance.setVisible(false);
         buttonSetBalance.setVisible(false);
 
+        textFieldSetOrderFee.setVisible(false);
+        buttonSetOrderFee.setVisible(false);
+
         this.setVisible(true);
+    }
+
+    public JButton getButtonSetOrderFee() {
+        return buttonSetOrderFee;
+    }
+
+    public void setButtonSetOrderFee(JButton buttonSetOrderFee) {
+        this.buttonSetOrderFee = buttonSetOrderFee;
+    }
+
+    public JTextField getTextFieldSetOrderFee() {
+        return textFieldSetOrderFee;
+    }
+
+    public void setTextFieldSetOrderFee(JTextField textFieldSetOrderFee) {
+        this.textFieldSetOrderFee = textFieldSetOrderFee;
+    }
+
+    public JLabel getLabelOrderFee() {
+        return labelOrderFee;
+    }
+
+    public void setLabelOrderFee(JLabel labelOrderFee) {
+        this.labelOrderFee = labelOrderFee;
+    }
+
+    public JLabel getLabelOrderFeeValue() {
+        return labelOrderFeeValue;
+    }
+
+    public void setLabelOrderFeeValue(JLabel labelOrderFeeValue) {
+        this.labelOrderFeeValue = labelOrderFeeValue;
+    }
+
+    public JButton getButtonEditOrderFee() {
+        return buttonEditOrderFee;
+    }
+
+    public void setButtonEditOrderFee(JButton buttonEditOrderFee) {
+        this.buttonEditOrderFee = buttonEditOrderFee;
     }
 
     public JButton getButtonSetBalance() {
@@ -353,8 +415,16 @@ public class ViewMain extends JFrame {
         buttonSetBalance.addActionListener(actionListener);
     }
 
+    public void addSetOrderFeeListener(ActionListener actionListener) {
+        buttonSetOrderFee.addActionListener(actionListener);
+    }
+
     public void addEditBalanceListener(ActionListener actionListener) {
         buttonEditBalance.addActionListener(actionListener);
+    }
+
+    public void addEditOrderFeeListener(ActionListener actionListener) {
+        buttonEditOrderFee.addActionListener(actionListener);
     }
 
     public void addBuyListener(ActionListener actionListener) {
@@ -383,6 +453,16 @@ public class ViewMain extends JFrame {
         } else {
             buttonSetBalance.setVisible(false);
             textFieldSetBalance.setVisible(false);
+        }
+    }
+
+    public void setVisibleEditFees(boolean visible) {
+        if(visible) {
+            buttonSetOrderFee.setVisible(true);
+            textFieldSetOrderFee.setVisible(true);
+        } else {
+            buttonSetOrderFee.setVisible(false);
+            textFieldSetOrderFee.setVisible(false);
         }
     }
 }
